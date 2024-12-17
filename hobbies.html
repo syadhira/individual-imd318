@@ -121,14 +121,12 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* When hovered, hide the image and show the solid background color */
         .hobbies .grid div:hover {
             transform: scale(1.1);
             background-color: #24110c;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Hide the image when hovered */
         .hobbies .grid img {
             width: 100%;
             height: 100%;
@@ -138,10 +136,9 @@
         }
 
         .hobbies .grid div:hover img {
-            opacity: 0; /* Hide the image when hovered */
+            opacity: 0;
         }
 
-        /* Caption in the center */
         .hobbies .grid div p {
             position: absolute;
             top: 50%;
@@ -150,7 +147,6 @@
             color: white;
             font-size: 16px;
             font-weight: bold;
-            opacity: 1;
             margin: 0;
             text-align: center;
             z-index: 1;
@@ -177,7 +173,6 @@
             margin-bottom: 30px;
         }
 
-        /* Song item */
         .song {
             display: flex;
             align-items: center;
@@ -185,14 +180,14 @@
             background: #fff;
             color: #333;
             border-radius: 50px;
-            width: 300px; /* Increased width for longer columns */
-            height: 80px; /* Increased height for better visual balance */
+            width: 300px;
+            height: 80px;
             margin: 10px auto;
             padding: 10px;
             cursor: pointer;
             transition: transform 0.3s ease;
             text-align: center;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Optional: Added shadow for depth */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
 
         .song:hover {
@@ -201,23 +196,20 @@
             color: white;
         }
 
-        /* Adjust image alignment within .song */
         .song img {
-            width: 60px; /* Increased size for better visibility */
+            width: 60px;
             height: 60px;
             border-radius: 50%;
             margin-right: 20px;
         }
 
-        /* Ensure the text is centered */
         .song p {
             font-size: 18px;
             font-weight: bold;
-            text-align: center; /* Ensure text is centered */
+            text-align: center;
             margin: 0;
         }
 
-        /* Footer */
         footer {
             font-size: 14px;
         }
@@ -262,7 +254,6 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hobbies Section -->
         <section class="hobbies">
             <h1>Aisyah's Hobbies</h1>
             <div class="grid">
@@ -281,7 +272,6 @@
             </div>
         </section>
 
-        <!-- Song List Section -->
         <section class="songs">
             <h1>My Favorite Songs to Listen</h1>
             <div class="song" onclick="togglePlay(this, 'song1')" style="background: linear-gradient(to bottom, #0066ff 0%, #cc66ff 100%);">
@@ -312,26 +302,7 @@
         <p>&copy; 2024 Aisyah's Personal Website. All rights reserved.</p>
     </footer>
 
-   
     <script>
-        // Initialize play count
-        let playCount = 0;
-        const maxPlayCount = 5;
-        const backgroundAudio = document.getElementById('backgroundAudio');
-
-        // Function to play audio with loop limit
-        backgroundAudio.play();
-
-        backgroundAudio.addEventListener('ended', () => {
-            playCount++;
-            if (playCount < maxPlayCount) {
-                backgroundAudio.play();  // Play again
-            } else {
-                backgroundAudio.pause();  // Stop after 5 loops
-            }
-        });
-
-        // Function to toggle play and pause for songs
         let currentlyPlayingAudio = null;
         function togglePlay(element, songId) {
             const audio = document.getElementById(songId);
@@ -348,7 +319,6 @@
             }
         }
 
-        // Scroll animation for songs
         window.addEventListener('scroll', function() {
             const songs = document.querySelector('.songs');
             const position = songs.getBoundingClientRect().top;
