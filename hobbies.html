@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies - Personal Website</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Maharlika, arial-nova;
+            margin: 0;
+            padding: 0;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay to darken the video */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: -1;
+        }
+
+        /* Header and Footer */
+        header, footer {
+            background-color: #4c260b;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a.active {
+            font-weight: bold;
+            border-bottom: 2px solid white;
+        }
+
+        nav ul li a:hover {
+            color: #ff6347;
+        }
+
+        /* Hobbies Section */
+        .hobbies {
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .hobbies h1 {
+            color: #9ca98d;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .hobbies .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 30px auto;
+            max-width: 1000px;
+        }
+
+        .hobbies .grid div {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* When hovered, hide the image and show the solid background color */
+        .hobbies .grid div:hover {
+            transform: scale(1.1);
+            background-color: #24110c;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hide the image when hovered */
+        .hobbies .grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: opacity 0.3s ease;
+        }
+
+        .hobbies .grid div:hover img {
+            opacity: 0; /* Hide the image when hovered */
+        }
+
+        /* Caption in the center */
+        .hobbies .grid div p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            opacity: 1;
+            margin: 0;
+            text-align: center;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Song List Section */
+        .songs {
+            text-align: center;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-in, transform 1s ease-in;
+        }
+
+        .songs.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .songs h1 {
+            font-size: 2.5rem;
+            color:#f4b898;
+            margin-bottom: 30px;
+        }
+
+        /* Song item */
+        .song {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: #333;
+            border-radius: 50px;
+            width: 300px; /* Increased width for longer columns */
+            height: 80px; /* Increased height for better visual balance */
+            margin: 10px auto;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Optional: Added shadow for depth */
+        }
+
+        .song:hover {
+            transform: scale(1.05);
+            background-color: #2C5F2D;
+            color: white;
+        }
+
+        /* Adjust image alignment within .song */
+        .song img {
+            width: 60px; /* Increased size for better visibility */
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        /* Ensure the text is centered */
+        .song p {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center; /* Ensure text is centered */
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            font-size: 14px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="video/love.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Black Overlay -->
+    <div class="video-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <img src="image/logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="hobbies.html" class="active">Hobbies</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hobbies Section -->
+        <section class="hobbies">
+            <h1>Aisyah's Hobbies</h1>
+            <div class="grid">
+                <div>
+                    <img src="image/anime.jpg" alt="Watching Anime">
+                    <p>Watching anime whenever I feel like doing nothing.</p>
+                </div>
+                <div>
+                    <img src="image/cat.jpg" alt="Photograph">
+                    <p>Capturing the cuteness of cats.</p>
+                </div>
+                <div>
+                    <img src="image/music.jpg" alt="Music">
+                    <p>Listening to music as my source of healing.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Song List Section -->
+        <section class="songs">
+            <h1>My Favorite Songs to Listen</h1>
+            <div class="song" onclick="togglePlay(this, 'song1')" style="background: linear-gradient(to bottom, #0066ff 0%, #cc66ff 100%);">
+                <img src="image/you.jpg" alt="Song 1">
+                <p>You by Chase Atlantic</p>
+                <audio id="song1" src="audio/you.mp3"></audio>
+            </div>
+            <div class="song" onclick="togglePlay(this, 'song2')" style="background: linear-gradient(to bottom, #663300 0%, #999966 100%)">
+                <img src="image/take it slow.jpg" alt="Song 2">
+                <p>Take it Slow by Milky Day</p>
+                <audio id="song2" src="audio/take it slow.mp3"></audio>
+            </div>
+            <div class="song" onclick="togglePlay(this, 'song3')" style="background: linear-gradient(to bottom, #cc0000 0%, #9966ff 100%);">
+                <img src="image/only.jpg" alt="Song 3">
+                <p>Only by LeeHi</p>
+                <audio id="song3" src="audio/only.mp3"></audio>
+            </div>
+            <div class="song" onclick="togglePlay(this, 'song4')" style="background: linear-gradient(to bottom, #525252 0%, #ebebeb 100%)">
+                <img src="image/alright.jpg" alt="Song 4">
+                <p>Alright by Raph</p>
+                <audio id="song4" src="audio/alright.mp3"></audio>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Aisyah's Personal Website. All rights reserved.</p>
+    </footer>
+
+   
+    <script>
+        // Initialize play count
+        let playCount = 0;
+        const maxPlayCount = 5;
+        const backgroundAudio = document.getElementById('backgroundAudio');
+
+        // Function to play audio with loop limit
+        backgroundAudio.play();
+
+        backgroundAudio.addEventListener('ended', () => {
+            playCount++;
+            if (playCount < maxPlayCount) {
+                backgroundAudio.play();  // Play again
+            } else {
+                backgroundAudio.pause();  // Stop after 5 loops
+            }
+        });
+
+        // Function to toggle play and pause for songs
+        let currentlyPlayingAudio = null;
+        function togglePlay(element, songId) {
+            const audio = document.getElementById(songId);
+            if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
+                currentlyPlayingAudio.pause();
+                currentlyPlayingAudio.currentTime = 0; 
+            }
+            if (audio.paused) {
+                audio.play();
+                currentlyPlayingAudio = audio; 
+            } else {
+                audio.pause();
+                currentlyPlayingAudio = null; 
+            }
+        }
+
+        // Scroll animation for songs
+        window.addEventListener('scroll', function() {
+            const songs = document.querySelector('.songs');
+            const position = songs.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (position < windowHeight) {
+                songs.classList.add('show');
+            }
+        });
+    </script>
+</body>
+</html>

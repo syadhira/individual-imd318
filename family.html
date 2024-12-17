@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family - Personal Website</title>
+    <link rel="stylesheet" href="family.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="video/love.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Black overlay -->
+    <div class="video-overlay"></div>
+
+    <!-- Header with solid color -->
+    <header>
+        <img src="image/logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="family.html" class="active">Family</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="family">
+            <h1>My Siblings</h1>
+            <div class="family-siblings">
+                <div class="family-member collapsed" onclick="toggleImage(this, 'image/fm1.jpg', 'Khairul Rijal Salleh')">
+                    <a href="javascript:void(0)">First Brother</a>
+                    <img src="" alt="Family Member Image">
+                    <div class="caption"></div>
+                </div>
+                <div class="family-member collapsed" onclick="toggleImage(this, 'image/fm2.jpg', 'Amirul Hussein Salleh')">
+                    <a href="javascript:void(0)">Second Brother</a>
+                    <img src="" alt="Family Member Image">
+                    <div class="caption"></div>
+                </div>
+                <div class="family-member collapsed" onclick="toggleImage(this, 'image/fm3.jpg', 'Danish Delamsyar Salleh')">
+                    <a href="javascript:void(0)">Third Brother</a>
+                    <img src="" alt="Family Member Image">
+                    <div class="caption"></div>
+                </div>
+                <div class="family-member collapsed" onclick="toggleImage(this, 'image/fm4.jpg', 'Islah Rasydan Salleh')">
+                    <a href="javascript:void(0)">Fourth Brother</a>
+                    <img src="" alt="Family Member Image">
+                    <div class="caption"></div>
+                </div>
+                <div class="family-member collapsed" onclick="toggleImage(this, 'image/fm5.jpg', 'Alwan Najmi Salleh')">
+                    <a href="javascript:void(0)">Fifth Brother</a>
+                    <img src="" alt="Family Member Image">
+                    <div class="caption"></div>
+                </div>
+                <div class="family-member collapsed" onclick="toggleImage(this, 'image/fm6.jpg', 'Aisyah Nadhirah')">
+                    <a href="javascript:void(0)">Myself</a>
+                    <img src="" alt="Family Member Image">
+                    <div class="caption"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Aisyah's Personal Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleImage(element, imagePath, name) {
+            // Close all family members first
+            const allMembers = document.querySelectorAll('.family-member');
+            allMembers.forEach(member => {
+                if (member !== element) {
+                    member.classList.add('collapsed');  // Collapse other members
+                    member.classList.remove('active');
+                }
+            });
+
+            // Toggle the clicked family member
+            if (element.classList.contains('active')) {
+                element.classList.remove('active');
+                element.classList.add('collapsed');
+            } else {
+                const img = element.querySelector('img');
+                const caption = element.querySelector('.caption');
+
+                img.src = imagePath;
+                caption.textContent = name;
+
+                element.classList.add('active');
+                element.classList.remove('collapsed');
+            }
+        }
+
+        // Background music functionality
+        // Create and play audio element
+        const audio = new Audio('audio/onlyguitar.mp3');
+        audio.loop = true;
+        audio.play();
+
+        // Check if the music was previously played
+        if (localStorage.getItem('music_playing') === 'true') {
+            audio.play();
+        }
+
+        // Start music on click anywhere on the page if blocked by the browser
+        document.body.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                localStorage.setItem('music_playing', 'true');
+            }
+        });
+    </script>
+</body>
+</html>

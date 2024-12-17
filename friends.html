@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends - Personal Website</title>
+    <link rel="stylesheet" href="friends.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="video/love.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Black overlay -->
+    <div class="video-overlay"></div>
+
+    <!-- Header with solid color -->
+    <header>
+        <img src="image/logo.png" alt="Logo" class="logo"> <!-- Replace with your logo image -->
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="friends.html" class="active">Friends</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <section class="friends">
+            <h1>Aisyah's Dearest Friends</h1>
+            <div class="grid">
+                <!-- 12 Friend images with popups -->
+                <div class="grid-item">
+                    <img src="image/jan.jpg" alt="Friend 1">
+                    <div class="popup">
+                        <p>This is my friend , Jannatul. Her cheerful personality made her to be more approachable.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/qils.jpg" alt="Friend 2">
+                    <div class="popup">
+                        <p>This is my friend , Aqilah. Everyone love her include me.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/que.jpg" alt="Friend 3">
+                    <div class="popup">
+                        <p>This is my friend , Que. We met in college and have been inseparable since.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/chad.jpg" alt="Friend 4">
+                    <div class="popup">
+                        <p>This is my friend, Rochad. She loves making stupid jokes.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/sarah.jpg" alt="Friend 5">
+                    <div class="popup">
+                        <p>This is my friend, Sarah. She is like a popular artist where everyone knows her.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/enon.jpg" alt="Friend 6">
+                    <div class="popup">
+                        <p>This is my friend , Ainul. We are high school friends and we still contact with each other till now.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/yan.jpg" alt="Friend 7">
+                    <div class="popup">
+                        <p>This is my friend, Dayana. Like an introvert person but clearly not.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/war.jpg" alt="Friend 8">
+                    <div class="popup">
+                        <p>This is my friend , Wardah. Concert and her cannot be separated.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/frin1.jpg" alt="Friend 9">
+                    <div class="popup">
+                        <p>This is my friend, Afrina. She is the true definition of an introvert.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/hana.jpg" alt="Friend 10">
+                    <div class="popup">
+                        <p>This is my friend, Hana. Nothing to say, just a pretty living human being.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/dina.jpg" alt="Friend 11">
+                    <div class="popup">
+                        <p>This is my friend, Dina. She is my first friend I met when I enrolled to university.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/aqil.jpg" alt="Friend 12">
+                    <div class="popup">
+                        <p>This is my friend, Aqil. Thumbs up to him.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Aisyah's Personal Website. All rights reserved.</p>
+    </footer>
+
+    <!-- Background music -->
+    <audio id="background-music" autoplay loop>
+        <source src="audio/onlyguitar.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        // Check if background music was already played
+        window.onload = function() {
+            var audio = document.getElementById('background-music');
+            // If the music is not paused, keep it playing
+            if (localStorage.getItem('music_playing') === 'true') {
+                audio.play();
+            }
+        }
+
+        // Start background music on click anywhere on the page (optional for browsers that block autoplay)
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            if (audio.paused) {
+                audio.play();
+                localStorage.setItem('music_playing', 'true'); // Set to true once audio starts
+            }
+        });
+    </script>
+
+</body>
+</html>

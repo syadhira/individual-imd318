@@ -1,0 +1,171 @@
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: -1;
+}
+
+/* Body and page layout */
+body {
+    font-family: Maharlika, arial-nova;
+    margin: 0;
+    padding: 0;
+    background-color: #24110c;
+    color: #fafafa;
+}
+
+header {
+    background-color: #4c260b;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+}
+
+nav ul li a:hover {
+    color: #ff6347;
+}
+
+/* Main Content */
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.caption-box {
+    background-color: rgba(244, 184, 152, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.caption-box h2 {
+    color: #6F1718;
+}
+
+.caption-box p {
+    line-height: 1.6;
+}
+
+/* Left Section */
+.left-section {
+    flex: 2;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(244, 184, 152, 0.5); 
+}
+
+.bio-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.bio-text h2 {
+    margin: 0;
+    color: #6F1718;
+}
+
+.social-icons img {
+    width: 40px;
+    margin-right: 15px;
+}
+
+.music-player {
+    margin-bottom: 20px;
+}
+
+.latest-updates {
+    margin-bottom: 20px;
+}
+
+.update-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.update-gallery img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: #4c260b;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #4c260b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

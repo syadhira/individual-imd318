@@ -1,0 +1,157 @@
+body {
+    font-family: Maharlika, arial-nova;
+    margin: 0;
+    padding: 0;
+    color: white;
+    overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Video background container */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay to darken the video */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: -1;
+}
+
+/* Header and footer fixed size */
+header, footer {
+    background-color: #4c260b;
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    flex-shrink: 0;
+}
+
+footer {
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+.logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+}
+
+nav ul li a:hover {
+    color: #ff6347;
+}
+
+.family {
+    padding: 50px 20px;
+    text-align: center;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.family h1 {
+    font-size: 2.5rem;
+    color: #9ca98d;
+}
+
+.family-siblings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.family-member {
+    position: relative;
+    width: 200px;
+    background-color: #24110c;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.family-member a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}
+
+.family-member img {
+    display: none;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.family-member .caption {
+    font-size: 1rem;
+    color: white;
+    margin-top: 10px;
+    font-style: italic;
+    display: none;
+}
+
+/* Show image and caption when the family member is active */
+.family-member.active img,
+.family-member.active .caption {
+    display: block;
+}
+
+/* To collapse the inactive family members */
+.family-member.collapsed {
+    height: 100px; /* Collapse height */
+    overflow: hidden;
+}

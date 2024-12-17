@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index - Personal Website</title>
+    <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+
+    <!-- Background Audio (set autoplay and loop) -->
+    <audio id="backgroundAudio" autoplay loop>
+        <source src="audio/samemistakes.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <header>
+        <img src="image/logo.png" alt="Logo" class="logo"> <!-- Replace with your logo image -->
+        <nav>
+            <ul>
+                <li><a href="index.html" class="home active">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <!-- Local video as background -->
+            <video class="video-background" autoplay muted loop>
+                <source src="video/index1.mp4" type="video/mp4"> <!-- Replace with your video file -->
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Darker overlay -->
+            <div class="overlay"></div>
+
+            <!-- Centered caption -->
+            <div class="hero-content">
+                <h1>Welcome to The Beauty Life Within Me</h1>
+                <!-- About Me Button -->
+                <a href="aboutme.html" class="about-me-btn">About Me</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Aisyah's Personal Website. All rights reserved.</p>
+    </footer>
+
+    <!-- Play/Stop Audio Button -->
+    <button id="audioControl" onclick="toggleAudio()">Stop</button>
+
+    <script>
+        // Function to toggle the audio play/pause
+        function toggleAudio() {
+            var audio = document.getElementById('backgroundAudio');
+            var button = document.getElementById('audioControl');
+            
+            if (audio.paused) {
+                audio.play();
+                button.textContent = "Stop";  // Change button text to "Stop Music"
+            } else {
+                audio.pause();
+                button.textContent = "Play";  // Change button text to "Play Music"
+            }
+        }
+    </script>
+
+</body>
+</html>

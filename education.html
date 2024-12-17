@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Personal Website</title>
+    <link rel="stylesheet" href="education.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="video/love.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Black overlay -->
+    <div class="video-overlay"></div>
+
+    <!-- Background music -->
+    <audio id="background-music" autoplay loop>
+        <source src="audio/onlyguitar.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Header with solid color -->
+    <header>
+        <img src="image/logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="education.html" class="active">Education</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="education">
+            <h1>My Education Journey</h1>
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <h3>Primary School</h3>
+                    <strong>SK Bekuai (Graduated in 2016)</strong>
+                    <p>My primary school experience was a vibrant journey of discovery and growth, filled with engaging lessons that sparked my curiosity and a wonderful community of friends who made every day enjoyable.</p>
+                    <div class="media-container">
+                        <img src="image/skb.jpg" alt="Photo 1">
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <h3>High School</h3>
+                    <strong>SMK Tun Saban (2017-2022)</strong>
+                    <p>High school was a time of self-discovery, achievements, and lifelong friendships.</p>
+                    <div class="media-container">
+                        <img src="image/highschool1.jpg" alt="Photo 1">
+                        <img src="image/highschool2.jpg" alt="Photo 2">
+                        <img src="image/highschool3.jpg" alt="Photo 3">
+                        <img src="image/highschool4.jpg" alt="Photo 4">
+                                          </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <h3>University</h3>
+                    <strong>Universiti Teknologi MARA (UiTM) Kedah (2022-2025)</strong>
+                    <p>University life was transformative, preparing me for my future while creating unforgettable memories.</p>
+                    <div class="media-container">
+                        <img src="image/uni1.jpg" alt="Photo 1">
+                        <img src="image/uni2.jpg" alt="Photo 2">
+                        <video src="video/uni.mp4" controls></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with solid color -->
+    <footer>
+        <p>© 2024 Personal Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Check if background music was already played
+        window.onload = function() {
+            var audio = document.getElementById('background-music');
+            // If the music is not paused, keep it playing
+            if (localStorage.getItem('music_playing') === 'true') {
+                audio.play();
+            }
+        }
+
+        // Start background music on click anywhere on the page (optional for browsers that block autoplay)
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            if (audio.paused) {
+                audio.play();
+                localStorage.setItem('music_playing', 'true'); // Set to true once audio starts
+            }
+        });
+    </script>
+</body>
+</html>
