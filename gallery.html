@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Timeline - Personal Website</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="video/love.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Black Overlay -->
+    <div class="video-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <img src="image/logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Gallery Timeline -->
+    <main>
+        <section class="timeline">
+            <h1>Aisyah's Gallery</h1>
+            <!-- Dropdown Menu -->
+            <div class="timeline-nav">
+                <select class="timeline-dropdown" id="timelineSelector">
+                    <option value="ipoh-trips">Ipoh Trips</option>
+                    <option value="sabaqwey-trips">SabaqWey Trips</option>
+                    <option value="sulam-programme">SULAM Programme</option>
+                </select>
+            </div>
+
+            <!-- Ipoh Trips Section -->
+            <div id="ipoh-trips" class="year-section active">
+                <h2>Ipoh Trips</h2>
+                <table class="gallery-table">
+                    <tr>
+                        <td><img src="image/ipoh1.jpg" class="gallery-item" alt="Ipoh Trip Image 1"></td>
+                        <td><img src="image/ipoh2.jpg" class="gallery-item" alt="Ipoh Trip Image 2"></td>
+                        <td><img src="image/ipoh3.jpg" class="gallery-item" alt="Ipoh Trip Image 3"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="image/ipoh4.jpg" class="gallery-item" alt="Ipoh Trip Image 4"></td>
+                        <td><img src="image/ipoh5.jpg" class="gallery-item" alt="Ipoh Trip Image 5"></td>
+                        <td><img src="image/ipoh6.jpg" class="gallery-item" alt="Ipoh Trip Image 6"></td>
+                    </tr>
+                    <tr>
+                        <td><video class="gallery-item" controls>
+                            <source src="video/ipoh1.mp4" type="video/mp4">
+                        </video></td>
+                        <td><video class="gallery-item" controls>
+                            <source src="video/ipoh2.mp4" type="video/mp4">
+                        </video></td>
+                        <td><video class="gallery-item" controls>
+                            <source src="video/ipoh3.mp4" type="video/mp4">
+                        </video></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- SabaqWey Trips Section -->
+            <div id="sabaqwey-trips" class="year-section">
+                <h2>SabaqWey Trips</h2>
+                <table class="gallery-table">
+                    <tr>
+                        <td><video class="gallery-item" controls>
+                            <source src="video/sbq1.mp4" type="video/mp4">
+                        </video></td>
+                        <td><video class="gallery-item" controls>
+                            <source src="video/sbq2.mp4" type="video/mp4">
+                        </video></td>
+                        <td><video class="gallery-item" controls>
+                            <source src="video/sbq3.mp4" type="video/mp4">
+                        </video></td>
+                    </tr>
+                    <tr>
+                        <td><video class="gallery-item" controls>
+                            <source src="video/sbq4.mp4" type="video/mp4">
+                        </video></td>
+                        <td><video class="gallery-item" controls>
+                            <source src="video/sbq5.mp4" type="video/mp4">
+                        </video></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- SULAM Programme Section -->
+            <div id="sulam-programme" class="year-section">
+                <h2>SULAM Programme</h2>
+                <table class="gallery-table">
+                    <tr>
+                        <td><img src="image/sulam1.jpg" class="gallery-item" alt="SULAM Image 1"></td>
+                        <td><img src="image/sulam2.jpg" class="gallery-item" alt="SULAM Image 2"></td>
+                        <td><img src="image/sulam3.jpg" class="gallery-item" alt="SULAM Image 3"></td>
+                    </tr>
+                    <tr>
+                            <td><video class="gallery-item" controls>
+                            <source src="video/sulam2.mp4" type="video/mp4">
+                        </video></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Aisyah's Personal Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Dropdown functionality to show specific sections
+        const dropdown = document.getElementById("timelineSelector");
+        const sections = document.querySelectorAll(".year-section");
+
+        dropdown.addEventListener("change", function () {
+            const selected = dropdown.value;
+
+            sections.forEach((section) => {
+                if (section.id === selected) {
+                    section.classList.add("active");
+                } else {
+                    section.classList.remove("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
